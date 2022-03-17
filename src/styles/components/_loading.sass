@@ -1,0 +1,33 @@
+.content
+    position: fixed
+    z-index: 2020
+    min-width: 100vw
+    
+    .spinner
+        display: flex
+        justify-content: center
+        align-items: center
+        min-height: 100vh
+        background-color: #000
+        opacity: .8
+        
+        i.fas.fa-grin-wink
+            position: relative
+            color: white
+            font-size: 8rem
+
+            $value: ()
+            @for $i from 1 through 5
+                $pixel: ($i * 50) + px;
+                $shadow: 0 0 $pixel teal;
+                $value: append($value, $shadow, comma)
+            
+            text-shadow: $value
+            animation: animate 5s linear infinite
+
+@keyframes animate
+    0%
+        filter: hue-rotate(0deg)
+
+    100% 
+        filter: hue-rotate(360deg)
